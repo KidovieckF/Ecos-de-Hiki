@@ -1,9 +1,0 @@
-res://scenes/fase.tscn
-res://scenes/player.tscn
-res://scenes/enemy.tscn
-res://scenes/cliff_side.tscn
-res://scenes/inGameUI.tscn
-res://scenes/bullet.tscn
-res://scenes/control.tscn
-res://scenes/hud.tscn
-res://scripts/player.gd
