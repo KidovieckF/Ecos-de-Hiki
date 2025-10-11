@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://nvfvbnk7nqjl"]
+
+[ext_resource type="Texture2D" uid="uid://2lkkc2pkijsp" path="res://art/HUDesboco 2.PNG" id="1_ahhtf"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 1
+offset_right = 183.0
+offset_bottom = 55.0
+texture = ExtResource("1_ahhtf")
