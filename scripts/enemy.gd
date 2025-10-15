@@ -100,4 +100,4 @@ func drop_items() -> void:
 			drop.scale = Vector2(0.5,0.5)
 			drop.item_data = drops[i].item
 			get_tree().current_scene.add_child(drop)
-			drop.global_position = global_position + Vector2(randf() * 16, randf() * 16)
+			drop.global_position = global_position + Vector2(randf() * 64, randf() * 64)
