@@ -1,8 +1,11 @@
 extends CharacterBody2D
 
+
+
 @export var bullet_scene: PackedScene
 var menu_scene = preload("res://scenes/control.tscn")
 var hud_scene = preload("res://scenes/hud.tscn")
+var inventory_scene = preload("res://scenes/Inventario.tscn")
 
 var enemy_inatacck_range = false
 var enemy_attack_cooldown = true
@@ -20,6 +23,7 @@ func _ready():
 	$AnimatedSprite2D2.play("Idle_M")
 	instantiate_menu()
 	instantiate_HUD()
+	instantiate_inventory()
 	
 func _physics_process(delta):
 	player_movement(delta)
@@ -34,6 +38,12 @@ func instantiate_HUD():
 	hud_instance.position = Vector2(0,0)
 	$UI.add_child(hud_instance)
 	
+func instantiate_inventory():
+	var inventory_instance = inventory_scene.instantiate()
+	inventory_instance.scale = Vector2(0.4,0.4)
+	inventory_instance.position = Vector2(115,3)
+	$UI.add_child(inventory_instance)
+
 func instantiate_menu():
 	if not $UI:
 		push_error("Nó 'UI' (CanvasLayer) não encontrado! Adicione um CanvasLayer como filho do Player.")
@@ -118,6 +128,7 @@ func play_anim(movement):
 			if attack_ip == false:
 				anim.play("back_idle")
 
+#identificador que se trata de um player
 func player():
 	pass
 
@@ -138,6 +149,7 @@ func enemy_attack():
 		print(health)
 
 
+#janela de invulnerabilidade para ataques
 func _on_iframes_timeout() -> void:
 	enemy_attack_cooldown = true
 
@@ -202,6 +214,7 @@ func shoot():
 		get_tree().current_scene.add_child(bullet)
 		
 
+#tempo de espera para atirar
 func _on_attack_cd_timeout() -> void:
 	$attack_cd.stop()
 	Fase.player_current_attack = false

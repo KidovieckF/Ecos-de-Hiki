@@ -11,9 +11,12 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 40.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="HBoxContainer"]
 custom_minimum_size = Vector2(100, 30)
-layout_mode = 1
-offset_right = 183.0
-offset_bottom = 55.0
+layout_mode = 2
 texture = ExtResource("1_ahhtf")

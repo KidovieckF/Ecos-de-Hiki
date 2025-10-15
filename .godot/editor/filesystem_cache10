@@ -1,12 +1,12 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1760199359
+::res://::1760549053
 ::res://art/::1760199114
 bgMenu.png::CompressedTexture2D/CompressedTexture2D::8137179505512325730::1760199088::1760199113::1::::<><><>0<>0<>b4463f4b8ed54c8aff9f47c0c06750ce<>res://.godot/imported/bgMenu.png-4968d2eee955ba392e3e7e9a6425a19e.ctex::
 fundoMar.jpg::CompressedTexture2D/CompressedTexture2D::758835781610067885::1760199088::1760199113::1::::<><><>0<>0<>14b0d8f2e7f6a7975d4e92b034b0d852<>res://.godot/imported/fundoMar.jpg-b434c66d7fe5557240d267b1210ba8de.ctex::
 HUDesboco 1.png::CompressedTexture2D/CompressedTexture2D::533830430320087197::1760199088::1760199114::1::::<><><>0<>0<>9d299c5e089427ada78a96c9ec829fed<>res://.godot/imported/HUDesboco 1.png-d755bd4c4fb01d53cf98dc8ede870d9a.ctex::
 HUDesboco 2.PNG::CompressedTexture2D/CompressedTexture2D::1918432108839885207::1760199088::1760199113::1::::<><><>0<>0<>dd0ef01624f47cb3b0260e1937346e96<>res://.godot/imported/HUDesboco 2.PNG-b950b33b1c9af823144984e522705f9e.ctex::
 icon.svg::CompressedTexture2D/CompressedTexture2D::732963270719329288::1760199088::1760199113::1::::<><><>0<>0<>3ef6b10b1da6bf9f9284eb2d13f8a92f<>res://.godot/imported/icon.svg-2ffe2e9772a318535303737ea3c29287.ctex::
-read_me.txt::TextFile::-1::1760199088::0::1::::<><><>0<>0<><>::
+read_me.txt::TextFile/TextFile::-1::1760199088::0::1::::<><><>0<>0<><>::
 ::res://art/characters/::1760199113
 player.png::CompressedTexture2D/CompressedTexture2D::5545155950179403147::1760199088::1760199113::1::::<><><>0<>0<>b2bdd944671eaf15185d5f99dce35b82<>res://.godot/imported/player.png-724888193b7e6f81468b28eab9d7a9e5.ctex::
 RaposaGame.png::CompressedTexture2D/CompressedTexture2D::666180688074431144::1760199088::1760199113::1::::<><><>0<>0<>325840cce28177e533ed66829ad0090a<>res://.godot/imported/RaposaGame.png-e4a69f66d4543f89960d075ea6f4e751.ctex::
@@ -132,7 +132,7 @@ wooden_door.png::CompressedTexture2D/CompressedTexture2D::3962631907181012323::1
 wooden_door_b.png::CompressedTexture2D/CompressedTexture2D::2835629312500701949::1760199088::1760199112::1::::<><><>0<>0<>2bc34a4a7670f4808077e18d45c3da26<>res://.godot/imported/wooden_door_b.png-3700c4f26de87331ebb42f7094617866.ctex::
 ::res://art/UIMenu/::1759755818
 ::res://art/UIMenu/Sprout Lands - UI Pack - Basic pack/::1760199088
-read_me.txt::TextFile::-1::1760199088::0::1::::<><><>0<>0<><>::
+read_me.txt::TextFile/TextFile::-1::1760199088::0::1::::<><><>0<>0<><>::
 ::res://art/UIMenu/Sprout Lands - UI Pack - Basic pack/emojis-free/::1760199112
 Emoji_Spritesheet_Free.png::CompressedTexture2D/CompressedTexture2D::7318313682240740362::1760199088::1760199112::1::::<><><>0<>0<>8a8e9fa604bd0c8feb40b4de9d3112b5<>res://.godot/imported/Emoji_Spritesheet_Free.png-b54b1d1d2f51f4665df046f2dbc76d1d.ctex::
 speech_bubble_grey.png::CompressedTexture2D/CompressedTexture2D::5168653896841351653::1760199088::1760199112::1::::<><><>0<>0<>9132f138d092347865e9a24358c766d5<>res://.godot/imported/speech_bubble_grey.png-74f58c4a1bd1db638ec1890fa5e0aac1.ctex::
@@ -190,25 +190,47 @@ Catpaw pointing Mouse icon.png::CompressedTexture2D/CompressedTexture2D::6355348
 Triangle Mouse icon 1.png::CompressedTexture2D/CompressedTexture2D::6648382462255165063::1760199088::1760199112::1::::<><><>0<>0<>ebd75472ceb25452b71b4cf61625c921<>res://.godot/imported/Triangle Mouse icon 1.png-a2f625d41819ba6f86175265ae5928a3.ctex::
 Triangle Mouse icon 2.png::CompressedTexture2D/CompressedTexture2D::147243273678647837::1760199088::1760199112::1::::<><><>0<>0<>1df4e43807d7c949e926a47c2b578334<>res://.godot/imported/Triangle Mouse icon 2.png-4884b2f4803caac7a6852f910ab565f5.ctex::
 Triangle Mouse icon 3.png::CompressedTexture2D/CompressedTexture2D::3753576142622901316::1760199088::1760199112::1::::<><><>0<>0<>d19df3680353fd63ae3c74daf213d101<>res://.godot/imported/Triangle Mouse icon 3.png-37f188dfc752c3ebf8ed407b2554ea8f.ctex::
-::res://scenes/::1760199171
-bullet.tscn::PackedScene::2252574975655557852::1760199162::0::1::::<><><>0<>0<><>::uid://vfhwxdok0nr7::::res://scripts/bullet.gd<>uid://bl16xn2oigojp::::res://art/objects/FB001.png<>uid://nps5ef4d10i0::::res://art/objects/FB002.png<>uid://cdul34sb3m68f::::res://art/objects/FB003.png<>uid://c0lbivwhm5odt::::res://art/objects/FB004.png<>uid://4dqdb55xgkbt::::res://art/objects/FB005.png
-cliff_side.tscn::PackedScene::1037174846591643854::1760199171::0::1::::<><><>0<>0<><>::uid://dagacwx3jc44d::::res://art/tilesets/plains.png<>uid://plxl81wpb54c::::res://scripts/cliff_side.gd<>uid://dqyafxd58dwes::::res://art/tilesets/grass.png<>uid://d0sxvgxoy7cyq::::res://art/objects/objects.png<>uid://dtyky7cgimuhi::::res://scenes/player.tscn<>uid://y7fgsvxo730u::::res://art/objects/chest_01.png<>uid://dxn7dx5cqs72k::::res://art/tilesets/floors/chaocastelo.png<>uid://7qgyijlx4165::::res://art/tilesets/walls/parede.png<>uid://buf1287q2lm2a::::res://scenes/enemy.tscn<>uid://rkalscj0ymso::::res://art/tilesets/floors/rdpcstl.png<>uid://dwe0js1m023gh::::res://art/tilesets/walls/bandeira.png<>uid://c16p0s7wmuuw0::::res://art/tilesets/bandeira16.png<>uid://dvdk4jj086e2d::::res://art/tilesets/floors/wooden.png<>uid://bixit17q38y0i::::res://art/tilesets/walls/pilar2.png
-control.gd::GDScript::617983580107182391::1760199088::0::1::::<>Control<><>0<>0<><>::
-control.tscn::PackedScene::2463103552033072846::1760199171::0::1::::<><><>0<>0<><>::uid://cfftrlq078kgb::::res://art/UIMenu/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png<>uid://bpn3wbst3j43b::::res://scripts/pop_menu_manager.gd<>uid://d1wlaq1obbskn::::res://scripts/statdisplay.gd<>uid://n6sdcvutkm3x::::res://art/UIMenu/Sprout Lands - UI Pack - Basic pack/fonts/pixelFont-7-8x14-sproutLands.ttf<>uid://b6w44po86wqfu::::res://art/fonts/pixelFont-7-8x14-sproutLands.ttf
-enemy.tscn::PackedScene::3802148086939198926::1760199171::0::1::::<><><>0<>0<><>::uid://cj02bxnnk1kb8::::res://art/characters/slime.png<>uid://dcxaimeeos2ck::::res://scripts/enemy.gd
-fase.tscn::PackedScene::4483403833577469931::1760199171::0::1::::<><><>0<>0<><>::uid://dr4qy3lg4bsaw::::res://scripts/world.gd<>uid://dagacwx3jc44d::::res://art/tilesets/plains.png<>uid://dqyafxd58dwes::::res://art/tilesets/grass.png<>uid://d0sxvgxoy7cyq::::res://art/objects/objects.png<>uid://dtyky7cgimuhi::::res://scenes/player.tscn<>uid://c16p0s7wmuuw0::::res://art/tilesets/bandeira16.png<>uid://dxn7dx5cqs72k::::res://art/tilesets/floors/chaocastelo.png<>uid://buf1287q2lm2a::::res://scenes/enemy.tscn<>uid://bixit17q38y0i::::res://art/tilesets/walls/pilar2.png<>uid://rkalscj0ymso::::res://art/tilesets/floors/rdpcstl.png<>uid://y7fgsvxo730u::::res://art/objects/chest_01.png<>uid://7qgyijlx4165::::res://art/tilesets/walls/parede.png<>uid://broyi7yn62f0h::::res://art/tilesets/floors/flooring.png<>uid://dxkmhblfodvtj::::res://art/tilesets/walls/teto.png<>uid://dvdk4jj086e2d::::res://art/tilesets/floors/wooden.png<>uid://dwe0js1m023gh::::res://art/tilesets/walls/bandeira.png
-hud.tscn::PackedScene::956148059868965733::1760199162::0::1::::<><><>0<>0<><>::uid://2lkkc2pkijsp::::res://art/HUDesboco 2.PNG
-inGameUI.tscn::PackedScene::6224543514263801038::1760199171::0::1::::<><><>0<>0<><>::uid://djbiq3f15oqo3::::res://scripts/in_game_ui.gd<>uid://k2t6dd1ibaxx::::res://art/fundoMar.jpg<>uid://cfftrlq078kgb::::res://art/UIMenu/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png<>uid://b6w44po86wqfu::::res://art/fonts/pixelFont-7-8x14-sproutLands.ttf<>uid://n6sdcvutkm3x::::res://art/UIMenu/Sprout Lands - UI Pack - Basic pack/fonts/pixelFont-7-8x14-sproutLands.ttf
-player.tscn::PackedScene::8543046859401346918::1760199171::0::1::::<><><>0<>0<><>::uid://drh6a6x7kf8kk::::res://scripts/player.gd<>uid://clad55bqflh1t::::res://art/characters/player.png<>uid://cn3cip7gcm68::::res://art/characters/spritefrenteIdle.png<>uid://jqx5s1wxwje3::::res://art/characters/RaposaGame.png<>uid://b8hyau7egrsqk::::res://art/characters/Alice/AliciaCostasIdle.png<>uid://c52b2ta2ettbt::::res://art/characters/Alice/AliciaCostasAndando.png<>uid://fkvbp76wfjwb::::res://art/characters/spritefrenteAndandoAtt (1).png<>uid://7dft0ls0l6o3::::res://scenes/bullet.tscn<>uid://dnidap6h8aakc::::res://art/characters/Alice/AliciadeLadoFofinhaEsquerda.png<>uid://b2ktbpct8du00::::res://art/characters/Alice/AliciaDireitaIdle.png<>uid://buqboqcju1mmq::::res://art/characters/Alice/AliciaPulandinhoEsquerda.png<>uid://bkggqr5xcq214::::res://art/characters/Alice/AliciaCorrendoDireitaAtualizado.png
-upgrades.tscn::PackedScene::2922402374145986195::1760199171::0::1::::<><><>0<>0<><>::
-::res://scripts/::1760199088
+::res://inventário/::1760553884
+player_inventory.tres::Resource/InventoryData::8494458295863125075::1760553411::0::1::::<><><>0<>0<><>::uid://dsahdnj2htjv6::::res://inventário/scripts/inventory_data.gd<>uid://y1hlffix0aff::::res://inventário/scripts/slot_data.gd
+InventorySlot.tscn::PackedScene::2608373396608889777::1760553884::0::1::::<><><>0<>0<><>::uid://b4pxvhmiwoumx::::res://items/sprites/items.png<>uid://c2ackvao8jorh::::res://inventário/scripts/inventory_slot_ui.gd
+::res://inventário/scripts/::1760553411
+inventory_data.gd::GDScript::8423092310838626357::1760554709::0::1::::InventoryData<>Resource<><>0<>0<><>::
+inventory_UI.gd::GDScript::8139631324611341291::1760553411::0::1::::InventoryUI<>Control<><>0<>0<><>::
+inventory_slot_ui.gd::GDScript::6668080541208576921::1760552633::0::1::::InventorySlotUI<>Button<><>0<>0<><>::
+slot_data.gd::GDScript::1738651002336625191::1760549237::0::1::::SlotData<>Resource<><>0<>0<><>::
+::res://items/::1760553851
+gem.tres::Resource/ItemData::1867421784645180232::1760553851::0::1::::<><><>0<>0<><>::uid://dwq6j6w2argw1::::res://items/scripts/item_data.gd<>uid://b4pxvhmiwoumx::::res://items/sprites/items.png
+potion.tres::Resource/ItemData::1840338135677175966::1760551099::0::1::::<><><>0<>0<><>::uid://dwq6j6w2argw1::::res://items/scripts/item_data.gd<>uid://b4pxvhmiwoumx::::res://items/sprites/items.png
+stone.tres::Resource/ItemData::1202689469609744224::1760551099::0::1::::<><><>0<>0<><>::uid://dwq6j6w2argw1::::res://items/scripts/item_data.gd<>uid://b4pxvhmiwoumx::::res://items/sprites/items.png
+::res://items/item_pickup/::0
+ItemPickup.tscn::PackedScene::687194139845989283::1760554741::0::1::::<><><>0<>0<><>::
+::res://items/scripts/::1760553851
+item_data.gd::GDScript::8738346617538860422::1760553851::0::1::::ItemData<>Resource<><>0<>0<><>::
+item_pickup.gd::GDScript::3354550264296362002::1760554760::0::1::::<>Node<><>0<>0<><>::
+::res://items/sprites/::1760548395
+items.png::CompressedTexture2D::4454297194607128911::1760547416::1760548395::1::::<><><>0<>0<>ee2ede428f8e6cff07ee6cb3e4121a2b<>res://.godot/imported/items.png-c112ec8c06134d386ecee7bdec880e50.ctex::
+::res://scenes/::1760553884
+bullet.tscn::PackedScene::2252574975655557852::1760553884::0::1::::<><><>0<>0<><>::uid://vfhwxdok0nr7::::res://scripts/bullet.gd<>uid://bl16xn2oigojp::::res://art/objects/FB001.png<>uid://nps5ef4d10i0::::res://art/objects/FB002.png<>uid://cdul34sb3m68f::::res://art/objects/FB003.png<>uid://c0lbivwhm5odt::::res://art/objects/FB004.png<>uid://4dqdb55xgkbt::::res://art/objects/FB005.png
+cliff_side.tscn::PackedScene::1037174846591643854::1760553884::0::1::::<><><>0<>0<><>::uid://dagacwx3jc44d::::res://art/tilesets/plains.png<>uid://plxl81wpb54c::::res://scripts/cliff_side.gd<>uid://dqyafxd58dwes::::res://art/tilesets/grass.png<>uid://d0sxvgxoy7cyq::::res://art/objects/objects.png<>uid://dtyky7cgimuhi::::res://scenes/player.tscn<>uid://y7fgsvxo730u::::res://art/objects/chest_01.png<>uid://dxn7dx5cqs72k::::res://art/tilesets/floors/chaocastelo.png<>uid://7qgyijlx4165::::res://art/tilesets/walls/parede.png<>uid://buf1287q2lm2a::::res://scenes/enemy.tscn<>uid://rkalscj0ymso::::res://art/tilesets/floors/rdpcstl.png<>uid://dwe0js1m023gh::::res://art/tilesets/walls/bandeira.png<>uid://c16p0s7wmuuw0::::res://art/tilesets/bandeira16.png<>uid://dvdk4jj086e2d::::res://art/tilesets/floors/wooden.png<>uid://bixit17q38y0i::::res://art/tilesets/walls/pilar2.png
+control.gd::GDScript/GDScript::617983580107182391::1760199088::0::1::::<>Control<><>0<>0<><>::
+control.tscn::PackedScene::2463103552033072846::1760553884::0::1::::<><><>0<>0<><>::uid://cfftrlq078kgb::::res://art/UIMenu/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png<>uid://bpn3wbst3j43b::::res://scripts/pop_menu_manager.gd<>uid://d1wlaq1obbskn::::res://scripts/statdisplay.gd<>uid://n6sdcvutkm3x::::res://art/UIMenu/Sprout Lands - UI Pack - Basic pack/fonts/pixelFont-7-8x14-sproutLands.ttf<>uid://b6w44po86wqfu::::res://art/fonts/pixelFont-7-8x14-sproutLands.ttf
+enemy.tscn::PackedScene::3802148086939198926::1760554708::0::1::::<><><>0<>0<><>::uid://cj02bxnnk1kb8::::res://art/characters/slime.png<>uid://dcxaimeeos2ck::::res://scripts/enemy.gd
+fase.tscn::PackedScene::4483403833577469931::1760553884::0::1::::<><><>0<>0<><>::uid://dr4qy3lg4bsaw::::res://scripts/world.gd<>uid://dagacwx3jc44d::::res://art/tilesets/plains.png<>uid://dqyafxd58dwes::::res://art/tilesets/grass.png<>uid://d0sxvgxoy7cyq::::res://art/objects/objects.png<>uid://dtyky7cgimuhi::::res://scenes/player.tscn<>uid://c16p0s7wmuuw0::::res://art/tilesets/bandeira16.png<>uid://dxn7dx5cqs72k::::res://art/tilesets/floors/chaocastelo.png<>uid://buf1287q2lm2a::::res://scenes/enemy.tscn<>uid://bixit17q38y0i::::res://art/tilesets/walls/pilar2.png<>uid://rkalscj0ymso::::res://art/tilesets/floors/rdpcstl.png<>uid://y7fgsvxo730u::::res://art/objects/chest_01.png<>uid://7qgyijlx4165::::res://art/tilesets/walls/parede.png<>uid://broyi7yn62f0h::::res://art/tilesets/floors/flooring.png<>uid://dxkmhblfodvtj::::res://art/tilesets/walls/teto.png<>uid://dvdk4jj086e2d::::res://art/tilesets/floors/wooden.png<>uid://dwe0js1m023gh::::res://art/tilesets/walls/bandeira.png
+hud.tscn::PackedScene::956148059868965733::1760553884::0::1::::<><><>0<>0<><>::uid://2lkkc2pkijsp::::res://art/HUDesboco 2.PNG
+inGameUI.tscn::PackedScene::6224543514263801038::1760553884::0::1::::<><><>0<>0<><>::uid://djbiq3f15oqo3::::res://scripts/in_game_ui.gd<>uid://k2t6dd1ibaxx::::res://art/fundoMar.jpg<>uid://cfftrlq078kgb::::res://art/UIMenu/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png<>uid://b6w44po86wqfu::::res://art/fonts/pixelFont-7-8x14-sproutLands.ttf<>uid://n6sdcvutkm3x::::res://art/UIMenu/Sprout Lands - UI Pack - Basic pack/fonts/pixelFont-7-8x14-sproutLands.ttf
+player.tscn::PackedScene::8543046859401346918::1760553884::0::1::::<><><>0<>0<><>::uid://drh6a6x7kf8kk::::res://scripts/player.gd<>uid://clad55bqflh1t::::res://art/characters/player.png<>uid://cn3cip7gcm68::::res://art/characters/spritefrenteIdle.png<>uid://jqx5s1wxwje3::::res://art/characters/RaposaGame.png<>uid://b8hyau7egrsqk::::res://art/characters/Alice/AliciaCostasIdle.png<>uid://c52b2ta2ettbt::::res://art/characters/Alice/AliciaCostasAndando.png<>uid://fkvbp76wfjwb::::res://art/characters/spritefrenteAndandoAtt (1).png<>uid://7dft0ls0l6o3::::res://scenes/bullet.tscn<>uid://dnidap6h8aakc::::res://art/characters/Alice/AliciadeLadoFofinhaEsquerda.png<>uid://b2ktbpct8du00::::res://art/characters/Alice/AliciaDireitaIdle.png<>uid://buqboqcju1mmq::::res://art/characters/Alice/AliciaPulandinhoEsquerda.png<>uid://bkggqr5xcq214::::res://art/characters/Alice/AliciaCorrendoDireitaAtualizado.png
+Inventario.tscn::PackedScene::7306886127074012236::1760553884::0::1::::<><><>0<>0<><>::uid://b4pxvhmiwoumx::::res://items/sprites/items.png<>uid://dn75sk0d8kknj::::res://inventário/scripts/inventory_UI.gd<>uid://bdfrr8ifbmd18::::res://inventário/InventorySlot.tscn<>uid://dsahdnj2htjv6::::res://inventário/scripts/inventory_data.gd<>uid://y1hlffix0aff::::res://inventário/scripts/slot_data.gd<>uid://1uuftsi2pcma::::res://items/gem.tres<>uid://1hqdn37x5lxe::::res://items/potion.tres<>uid://reuecss8wvh5::::res://items/stone.tres
+upgrades.tscn::PackedScene::2922402374145986195::1760553884::0::1::::<><><>0<>0<><>::uid://dq8vkr584gbs2::::res://scripts/upgrades.gd
+::res://scripts/::1760552085
 bullet.gd::GDScript/GDScript::1484753124906175998::1759153457::0::1::::<>Area2D<><>0<>0<><>::
 canvas_layer.gd::GDScript/GDScript::8524993078042038245::1759860279::0::1::::<>CanvasLayer<><>0<>0<><>::
-cliff_side.gd::GDScript/GDScript::1076958718886894732::1758741437::0::1::::<>Node2D<><>0<>0<><>::
-enemy.gd::GDScript/GDScript::7347135349710590506::1758893893::0::1::::<>CharacterBody2D<><>0<>0<><>::
+cliff_side.gd::GDScript::1076958718886894732::1760548649::0::1::::<>Node2D<><>0<>0<><>::
+enemy.gd::GDScript::7347135349710590506::1760554708::0::1::::<>CharacterBody2D<><>0<>0<><>::
 fase.gd::GDScript/GDScript::6917048569465269981::1759837745::0::1::::<>Node<><>0<>0<><>::
 in_game_ui.gd::GDScript/GDScript::7793541809820070920::1758744716::0::1::::<>Control<><>0<>0<><>::
-player.gd::GDScript/GDScript::8368806929201920490::1759920911::0::1::::<>CharacterBody2D<><>0<>0<><>::
-pop_menu_manager.gd::GDScript/GDScript::3467829693560640917::1759881175::0::1::::<>MarginContainer<><>0<>0<><>::
-statdisplay.gd::GDScript::9030257064353901185::1760199088::0::1::::<>VBoxContainer<><>0<>0<><>::
+player.gd::GDScript::8368806929201920490::1760552085::0::1::::<>CharacterBody2D<><>0<>0<><>::
+pop_menu_manager.gd::GDScript::3467829693560640917::1760548650::0::1::::<>MarginContainer<><>0<>0<><>::
+drop_data.gd::GDScript::4699918041465439309::1760554708::0::1::::Dropdata<>Resource<><>0<>0<><>::
+statdisplay.gd::GDScript/GDScript::9030257064353901185::1760199088::0::1::::<>VBoxContainer<><>0<>0<><>::
+upgrades.gd::GDScript::8351701870738383907::1760199396::0::1::::<>Node2D<><>0<>0<><>::
 world.gd::GDScript/GDScript::8413355166689647158::1759838127::0::1::::<>Node2D<><>0<>0<><>::

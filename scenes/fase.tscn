@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b442ahb8bbbot"]
+[gd_scene load_steps=34 format=3 uid="uid://b442ahb8bbbot"]
 
 [ext_resource type="Script" uid="uid://dr4qy3lg4bsaw" path="res://scripts/world.gd" id="1_mxtig"]
 [ext_resource type="Texture2D" uid="uid://dagacwx3jc44d" path="res://art/tilesets/plains.png" id="1_rv1d8"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://dxkmhblfodvtj" path="res://art/tilesets/walls/teto.png" id="8_fu2tn"]
 [ext_resource type="Texture2D" uid="uid://dvdk4jj086e2d" path="res://art/tilesets/floors/wooden.png" id="8_gcevr"]
 [ext_resource type="Texture2D" uid="uid://dwe0js1m023gh" path="res://art/tilesets/walls/bandeira.png" id="9_4vaes"]
+[ext_resource type="PackedScene" uid="uid://j148tckqbpxr" path="res://items/item_pickup/ItemPickup.tscn" id="17_gcevr"]
+[ext_resource type="Resource" uid="uid://b2b43m87pf1qy" path="res://items/potion.tres" id="18_085hl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mxtig"]
 texture = ExtResource("1_rv1d8")
@@ -262,6 +264,10 @@ polygon = PackedVector2Array(-1, -1, 243, -1, 243, -28, 303, -28, 303, -1, 542, 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cliff_side_hitbox"]
 position = Vector2(273, -13)
 shape = SubResource("RectangleShape2D_mxtig")
+
+[node name="ItemPickup" parent="." instance=ExtResource("17_gcevr")]
+position = Vector2(161, 135)
+item_data = ExtResource("18_085hl")
 
 [connection signal="body_entered" from="cliff_side_hitbox" to="." method="_on_cliff_side_hitbox_body_entered"]
 [connection signal="body_exited" from="cliff_side_hitbox" to="." method="_on_cliff_side_hitbox_body_exited"]

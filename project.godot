@@ -18,6 +18,7 @@ config/icon="res://art/icon.svg"
 [autoload]
 
 Fase="*res://scripts/fase.gd"
+GlobalPlayerManager="*res://player/global_player_manager.gd"
 
 [display]
 

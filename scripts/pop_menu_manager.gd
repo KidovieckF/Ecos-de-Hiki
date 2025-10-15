@@ -15,6 +15,7 @@ func _process(delta: float) -> void:
 		toggle_visibility(menu_screen)
 		update_pause_state()	
 
+#pause e despause
 func update_pause_state():
 	if menu_screen.visible:
 		get_tree().paused = true

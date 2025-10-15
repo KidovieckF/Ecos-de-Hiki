@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://dcdrl2db2cqoq"]
+
+[ext_resource type="Texture2D" uid="uid://b4pxvhmiwoumx" path="res://items/sprites/items.png" id="1_3v7wo"]
+[ext_resource type="Script" uid="uid://dn75sk0d8kknj" path="res://inventário/scripts/inventory_UI.gd" id="2_77ueg"]
+[ext_resource type="PackedScene" uid="uid://bdfrr8ifbmd18" path="res://inventário/InventorySlot.tscn" id="2_fjte7"]
+[ext_resource type="Resource" uid="uid://d01eqkb7a7ysb" path="res://inventário/player_inventory.tres" id="3_77ueg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_77ueg"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+texture = ExtResource("1_3v7wo")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+region_rect = Rect2(96, 0, 32, 32)
+
+[node name="Control" type="Control"]
+custom_minimum_size = Vector2(130, 50)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 92.0
+offset_top = 36.0
+offset_right = 92.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+offset_right = 32.0
+offset_bottom = 32.0
+size_flags_vertical = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer2"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_77ueg")
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer2/PanelContainer"]
+layout_mode = 2
+columns = 5
+script = ExtResource("2_77ueg")
+data = ExtResource("3_77ueg")
+
+[node name="InventorySlot5" parent="HBoxContainer2/PanelContainer/GridContainer" instance=ExtResource("2_fjte7")]
+layout_mode = 2
+
+[node name="InventorySlot6" parent="HBoxContainer2/PanelContainer/GridContainer" instance=ExtResource("2_fjte7")]
+layout_mode = 2
+
+[node name="InventorySlot7" parent="HBoxContainer2/PanelContainer/GridContainer" instance=ExtResource("2_fjte7")]
+layout_mode = 2
+
+[node name="InventorySlot8" parent="HBoxContainer2/PanelContainer/GridContainer" instance=ExtResource("2_fjte7")]
+layout_mode = 2
+
+[node name="InventorySlot9" parent="HBoxContainer2/PanelContainer/GridContainer" instance=ExtResource("2_fjte7")]
+layout_mode = 2
