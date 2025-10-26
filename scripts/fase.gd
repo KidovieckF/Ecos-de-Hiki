@@ -14,6 +14,12 @@ var player_start_posy = 55
 
 var game_first_loadin = true
 
+#func _ready():
+	#var player = player
+	#var hud = CanvasLayer/c
+	#player.health_changed.connect(hud.update_health)
+
+
 func finish_changescenes():
 	if transition_scene == true:
 		transition_scene = false
