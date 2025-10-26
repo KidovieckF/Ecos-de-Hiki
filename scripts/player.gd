@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-
+signal health_changed(current, maximum)
 
 @export var bullet_scene: PackedScene
 var menu_scene = preload("res://scenes/control.tscn")
@@ -9,7 +9,10 @@ var inventory_scene = preload("res://scenes/Inventario.tscn")
 
 var enemy_inatacck_range = false
 var enemy_attack_cooldown = true
+
 var health = 100
+var max_health = 100
+
 var player_alive = true
 var menu_instance = null
 
@@ -24,6 +27,7 @@ func _ready():
 	instantiate_menu()
 	instantiate_HUD()
 	instantiate_inventory()
+	emit_signal("health_changed", health, max_health)
 	
 func _physics_process(delta):
 	player_movement(delta)
@@ -37,6 +41,7 @@ func instantiate_HUD():
 	var hud_instance = hud_scene.instantiate()
 	hud_instance.position = Vector2(0,0)
 	$UI.add_child(hud_instance)
+	self.health_changed.connect(hud_instance.update_health)
 	
 func instantiate_inventory():
 	var inventory_instance = inventory_scene.instantiate()
@@ -64,13 +69,6 @@ func instantiate_menu():
 	$UI.add_child(menu_instance)
 	print("✅ Menu criado em posição:", menu_instance.position)
 	
-	if health <= 0:
-		player_alive = false
-		health = 0
-		print("player has been killed")
-		self.queue_free()
-		
-		
 func player_movement(delta):
 	if Input.is_action_pressed("ui_right"):
 		current_dir = "right"
@@ -128,6 +126,21 @@ func play_anim(movement):
 			if attack_ip == false:
 				anim.play("back_idle")
 
+func take_damage(amount: int):
+	health -= amount
+	health = clamp(health, 0, max_health)
+	emit_signal("health_changed", health, max_health)
+	
+	if health <= 0:
+		player_alive = false
+		print("player has been killed")
+		queue_free()
+
+func heal(amount: int):
+	health += amount
+	health = clamp(health, 0, max_health)
+	emit_signal("health_changed", health, max_health)
+
 #identificador que se trata de um player
 func player():
 	pass
@@ -143,18 +156,15 @@ func _on_player_hitbox_body_exited(body: Node2D) -> void:
 
 func enemy_attack():
 	if enemy_inatacck_range and enemy_attack_cooldown == true:
-		health = health - 20
+		take_damage(20)		# A ser alterado
 		enemy_attack_cooldown = false
 		$iframes.start()
 		print(health)
-
+		emit_signal("health_changed", health)
 
 #janela de invulnerabilidade para ataques
 func _on_iframes_timeout() -> void:
 	enemy_attack_cooldown = true
-
-
-		
 
 func attack():
 	var dir = current_dir
