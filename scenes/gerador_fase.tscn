@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d28o0flysa63j"]
+
+[ext_resource type="Script" uid="uid://d2cy70t4kxkmm" path="res://scripts/gerador_fases.gd" id="1_606q5"]
+
+[node name="GeradorFase" type="Node2D"]
+script = ExtResource("1_606q5")

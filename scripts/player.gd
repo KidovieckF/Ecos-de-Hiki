@@ -7,6 +7,8 @@ var menu_scene = preload("res://scenes/control.tscn")
 var hud_scene = preload("res://scenes/hud.tscn")
 var inventory_scene = preload("res://scenes/Inventario.tscn")
 
+
+
 var enemy_inatacck_range = false
 var enemy_attack_cooldown = true
 var health = 100
@@ -21,17 +23,37 @@ var current_dir = "none"
 func _ready():
 	$AnimatedSprite2D.play("front_idle")
 	$AnimatedSprite2D2.play("Idle_M")
-	instantiate_menu()
 	instantiate_HUD()
 	instantiate_inventory()
+	if $world_camera:
+		$world_camera.make_current()
+	else:
+		print("Erro")
+	
+	print("🔍 Player instanciado em:", name, " | Cena:", get_tree().current_scene.name)
+	print("Todos os Players atuais:", get_tree().get_nodes_in_group("player"))
 	
 func _physics_process(delta):
 	player_movement(delta)
 	enemy_attack()
-	#attack()
-	current_camera()
 	shoot()
+	menu_input()
 	
+	if health <= 0:
+		player_alive = false
+		health = 0
+		print("player has been killed")
+		self.queue_free()
+	
+func menu_input():
+	if Input.is_action_just_pressed("menu"): # padrão: ESC
+		if menu_instance and is_instance_valid(menu_instance):
+			# se o menu já existe, fecha
+			menu_instance.queue_free()
+			menu_instance = null
+			print("🔻 Menu fechado")
+		else:
+			instantiate_menu()
 	
 func instantiate_HUD():
 	var hud_instance = hud_scene.instantiate()
@@ -64,11 +86,7 @@ func instantiate_menu():
 	$UI.add_child(menu_instance)
 	print("✅ Menu criado em posição:", menu_instance.position)
 	
-	if health <= 0:
-		player_alive = false
-		health = 0
-		print("player has been killed")
-		self.queue_free()
+	
 		
 		
 func player_movement(delta):
@@ -98,6 +116,8 @@ func player_movement(delta):
 		velocity.y = 0
 		
 	move_and_slide()
+	
+	
 	
 func play_anim(movement):
 	var dir = current_dir
@@ -220,10 +240,3 @@ func _on_attack_cd_timeout() -> void:
 	Fase.player_current_attack = false
 	attack_ip = false
 	
-func current_camera():
-	if Fase.current_scene == "world":
-		$world_camera.enabled = true
-		$cliffside_camera.enabled  = false
-	elif Fase.current_scene == "cliff_side":
-		$world_camera.enabled = false
-		$cliffside_camera.enabled = true

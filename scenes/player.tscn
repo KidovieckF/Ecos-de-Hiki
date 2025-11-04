@@ -520,12 +520,6 @@ limit_bottom = 177
 limit_smoothed = true
 rotation_smoothing_enabled = true
 
-[node name="cliffside_camera" type="Camera2D" parent="."]
-limit_left = 0
-limit_top = 0
-limit_right = 300
-limit_bottom = 127
-
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 position = Vector2(-16, -12)
 scale = Vector2(0.625, 0.625)

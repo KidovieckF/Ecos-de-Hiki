@@ -1,7 +1,9 @@
-AudioStreamPlayer2D
-Sprite2D
+Camera2D
 CollisionShape2D
 Area2D
+Marker2D
+Sprite2D
+AudioStreamPlayer2D
 Label
 TextureRect
 Button
@@ -11,5 +13,3 @@ HBoxContainer
 Control
 NinePatchRect
 Panel
-CanvasLayer
-MarginContainer
