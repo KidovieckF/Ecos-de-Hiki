@@ -1,17 +1,21 @@
 extends CharacterBody2D
 
-
+signal health_changed(current, maximum)
 
 @export var bullet_scene: PackedScene
 var menu_scene = preload("res://scenes/control.tscn")
 var hud_scene = preload("res://scenes/hud.tscn")
 var inventory_scene = preload("res://scenes/Inventario.tscn")
+var menu_morte_scene = preload("res://scenes/menu_morte.tscn")
 
 
 
 var enemy_inatacck_range = false
 var enemy_attack_cooldown = true
+
 var health = 100
+var max_health = 100
+
 var player_alive = true
 var menu_instance = null
 
@@ -25,6 +29,7 @@ func _ready():
 	$AnimatedSprite2D2.play("Idle_M")
 	instantiate_HUD()
 	instantiate_inventory()
+	instantiate_menu()
 	if $world_camera:
 		$world_camera.make_current()
 	else:
@@ -32,55 +37,39 @@ func _ready():
 	
 	print("🔍 Player instanciado em:", name, " | Cena:", get_tree().current_scene.name)
 	print("Todos os Players atuais:", get_tree().get_nodes_in_group("player"))
+	emit_signal("health_changed", health, max_health)
 	
 func _physics_process(delta):
 	player_movement(delta)
 	enemy_attack()
 	shoot()
-	menu_input()
 	
-	if health <= 0:
-		player_alive = false
-		health = 0
-		print("player has been killed")
-		self.queue_free()
-	
-func menu_input():
-	if Input.is_action_just_pressed("menu"): # padrão: ESC
-		if menu_instance and is_instance_valid(menu_instance):
-			# se o menu já existe, fecha
-			menu_instance.queue_free()
-			menu_instance = null
-			print("🔻 Menu fechado")
-		else:
-			instantiate_menu()
 	
 func instantiate_HUD():
 	var hud_instance = hud_scene.instantiate()
 	hud_instance.position = Vector2(0,0)
 	$UI.add_child(hud_instance)
+	self.health_changed.connect(hud_instance.update_health)
 	
 func instantiate_inventory():
 	var inventory_instance = inventory_scene.instantiate()
 	inventory_instance.scale = Vector2(0.4,0.4)
 	inventory_instance.position = Vector2(115,3)
 	$UI.add_child(inventory_instance)
+	
 
 func instantiate_menu():
+	print("Chamando instantiate_menu() — Cena atual:", get_tree().current_scene.name)
 	if not $UI:
 		push_error("Nó 'UI' (CanvasLayer) não encontrado! Adicione um CanvasLayer como filho do Player.")
 		return
 	
-	var gambiarraDeLocal = Vector2(-45,-30)	
-	if Fase.current_scene == "cliff_side":
-		gambiarraDeLocal = Vector2(-25, -100)
-	else:
-		gambiarraDeLocal = Vector2(-45,-30)
+	
 	menu_instance = menu_scene.instantiate()
 	menu_instance.scale = Vector2(0.35, 0.35)
+	var viewport_size = get_viewport().get_visible_rect().size
+	menu_instance.position = viewport_size / 4 - (menu_instance.size / 4)
 	
-	# Centraliza na tela (CanvasLayer usa coordenadas de tela)
-	menu_instance.position = global_position + gambiarraDeLocal
 	
 	# Adiciona dentro do CanvasLayer
 	$UI.add_child(menu_instance)
@@ -117,7 +106,27 @@ func player_movement(delta):
 		
 	move_and_slide()
 	
+func take_damage(amount: int):
+	health -= amount
+	health = clamp(health, 0, max_health)
+	emit_signal("health_changed", health, max_health)
 	
+	if health <= 0:
+		player_alive = false
+		print("player has been killed")
+		var menu_morte_instance = menu_morte_scene.instantiate()
+		menu_morte_instance.scale = Vector2(0.35, 0.35)
+		var viewport_size = get_viewport().get_visible_rect().size
+		menu_morte_instance.position = viewport_size / 1.75 - (menu_morte_instance.size / 1.75)
+		get_tree().current_scene.add_child(menu_morte_instance)
+		queue_free()
+		
+		
+func heal(amount: int):
+	health += amount
+	health = clamp(health, 0, max_health)
+	emit_signal("health_changed", health, max_health)
+
 	
 func play_anim(movement):
 	var dir = current_dir
@@ -163,18 +172,15 @@ func _on_player_hitbox_body_exited(body: Node2D) -> void:
 
 func enemy_attack():
 	if enemy_inatacck_range and enemy_attack_cooldown == true:
-		health = health - 20
+		take_damage(20)
 		enemy_attack_cooldown = false
 		$iframes.start()
 		print(health)
-
+		emit_signal("health_changed", health)
 
 #janela de invulnerabilidade para ataques
 func _on_iframes_timeout() -> void:
 	enemy_attack_cooldown = true
-
-
-		
 
 func attack():
 	var dir = current_dir

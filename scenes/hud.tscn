@@ -1,15 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://nvfvbnk7nqjl"]
+[gd_scene load_steps=7 format=3 uid="uid://nvfvbnk7nqjl"]
 
-[ext_resource type="Texture2D" uid="uid://2lkkc2pkijsp" path="res://art/HUDesboco 2.PNG" id="1_ahhtf"]
+[ext_resource type="Script" uid="uid://celmlnwgm4qfb" path="res://scripts/hud.gd" id="1_047uy"]
+[ext_resource type="Texture2D" uid="uid://x4ula0sqf4u8" path="res://art/Hud_vida/HUDesboco_clean.png" id="2_047uy"]
+[ext_resource type="Texture2D" uid="uid://dcdpm4aj0v42x" path="res://art/Hud_vida/HUD_health_0.png" id="3_047uy"]
+[ext_resource type="Texture2D" uid="uid://0d60kfbv1r51" path="res://art/Hud_vida/HUD_health.png" id="4_5pdws"]
+[ext_resource type="Texture2D" uid="uid://cfwww3tmobv7g" path="res://art/Hud_vida/HUD_mana_0.png" id="5_0i1j5"]
+[ext_resource type="Texture2D" uid="uid://bw825xl6c4dxf" path="res://art/Hud_vida/HUD_mana.png" id="5_uo2fv"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 mouse_filter = 2
+script = ExtResource("1_047uy")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
@@ -17,6 +19,29 @@ offset_right = 100.0
 offset_bottom = 40.0
 
 [node name="NinePatchRect" type="NinePatchRect" parent="HBoxContainer"]
-custom_minimum_size = Vector2(100, 30)
+custom_minimum_size = Vector2(100, 40)
 layout_mode = 2
-texture = ExtResource("1_ahhtf")
+texture = ExtResource("2_047uy")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 36.0
+offset_top = 15.0
+offset_right = 384.0
+offset_bottom = 32.0
+scale = Vector2(0.173459, 0.173459)
+value = 100.0
+texture_under = ExtResource("3_047uy")
+texture_progress = ExtResource("4_5pdws")
+
+[node name="ManaBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 19.0
+offset_right = 384.0
+offset_bottom = 36.0
+scale = Vector2(0.173, 0.173)
+value = 100.0
+texture_under = ExtResource("5_0i1j5")
+texture_progress = ExtResource("5_uo2fv")

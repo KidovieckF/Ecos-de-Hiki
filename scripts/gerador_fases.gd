@@ -1,6 +1,6 @@
 extends Node2D
 
-const SALA_INICIAL = preload("res://scenes/Sala1.tscn")
+const SALA_INICIAL = preload("res://scenes/fase_hub.tscn")
 const SALAS = [
 	preload("res://scenes/Sala2.tscn"),
 	preload("res://scenes/Sala3.tscn")

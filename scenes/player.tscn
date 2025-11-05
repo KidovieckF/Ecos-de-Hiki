@@ -483,6 +483,7 @@ animations = [{
 }]
 
 [node name="player" type="CharacterBody2D"]
+z_index = 1
 y_sort_enabled = true
 position = Vector2(70, 55)
 collision_layer = 3
@@ -496,7 +497,7 @@ frame_progress = 0.517354
 offset = Vector2(0, -15)
 
 [node name="UI" type="CanvasLayer" parent="."]
-layer = 10
+layer = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -1)
@@ -513,14 +514,13 @@ shape = SubResource("CircleShape2D_qhqgy")
 [node name="attack_cd" type="Timer" parent="."]
 
 [node name="world_camera" type="Camera2D" parent="."]
-limit_left = 0
-limit_top = 0
-limit_right = 500
-limit_bottom = 177
+limit_left = -10
+limit_right = 830
 limit_smoothed = true
 rotation_smoothing_enabled = true
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+z_index = 1
 position = Vector2(-16, -12)
 scale = Vector2(0.625, 0.625)
 sprite_frames = SubResource("SpriteFrames_2a3c5")

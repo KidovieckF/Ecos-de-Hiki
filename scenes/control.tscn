@@ -14,41 +14,41 @@ texture_margin_right = 2.0
 texture_margin_bottom = 2.0
 region_rect = Rect2(275, 178, 90, 27)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r67kn"]
-texture = ExtResource("1_5p55f")
-region_rect = Rect2(805, 102, 22, 22)
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_brbbq"]
 texture = ExtResource("1_5p55f")
 region_rect = Rect2(773, 100, 22, 24)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5p55f"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r67kn"]
 texture = ExtResource("1_5p55f")
-region_rect = Rect2(804, 197, 22, 22)
+region_rect = Rect2(805, 102, 22, 22)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8n18e"]
 texture = ExtResource("1_5p55f")
 region_rect = Rect2(772, 195, 22, 24)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tjwpk"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5p55f"]
 texture = ExtResource("1_5p55f")
-region_rect = Rect2(869, 230, 22, 22)
+region_rect = Rect2(804, 197, 22, 22)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lpubu"]
 texture = ExtResource("1_5p55f")
 region_rect = Rect2(837, 228, 22, 24)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lt2xq"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tjwpk"]
 texture = ExtResource("1_5p55f")
-region_rect = Rect2(741, 166, 22, 22)
+region_rect = Rect2(869, 230, 22, 22)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1p5nq"]
 texture = ExtResource("1_5p55f")
 region_rect = Rect2(709, 164, 22, 24)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lt2xq"]
+texture = ExtResource("1_5p55f")
+region_rect = Rect2(741, 166, 22, 22)
+
 [node name="Control" type="Control"]
 process_mode = 3
-z_index = 3
+z_index = 7
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -72,6 +72,7 @@ menu_screen = NodePath("baseMenu")
 
 [node name="baseMenu" type="VBoxContainer" parent="popMenu"]
 visible = false
+z_index = 8
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -135,18 +136,18 @@ custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/hover = SubResource("StyleBoxTexture_r67kn")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_r67kn")
 theme_override_styles/normal = SubResource("StyleBoxTexture_brbbq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_r67kn")
+theme_override_styles/hover = SubResource("StyleBoxTexture_r67kn")
 
 [node name="close_button" type="Button" parent="popMenu/baseMenu/baseMenuScreen/VBoxContainer/NinePatchRect/MarginContainer/buttonContainer/topButtons"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/hover = SubResource("StyleBoxTexture_5p55f")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_5p55f")
 theme_override_styles/normal = SubResource("StyleBoxTexture_8n18e")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_5p55f")
+theme_override_styles/hover = SubResource("StyleBoxTexture_5p55f")
 
 [node name="bottomButtons" type="HBoxContainer" parent="popMenu/baseMenu/baseMenuScreen/VBoxContainer/NinePatchRect/MarginContainer/buttonContainer"]
 layout_mode = 2
@@ -157,17 +158,17 @@ custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/hover = SubResource("StyleBoxTexture_tjwpk")
 theme_override_styles/normal = SubResource("StyleBoxTexture_lpubu")
+theme_override_styles/hover = SubResource("StyleBoxTexture_tjwpk")
 
 [node name="Button2" type="Button" parent="popMenu/baseMenu/baseMenuScreen/VBoxContainer/NinePatchRect/MarginContainer/buttonContainer/bottomButtons"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/hover = SubResource("StyleBoxTexture_lt2xq")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_lt2xq")
 theme_override_styles/normal = SubResource("StyleBoxTexture_1p5nq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lt2xq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lt2xq")
 
 [node name="statdisplay" type="VBoxContainer" parent="popMenu/baseMenu/baseMenuScreen/VBoxContainer/NinePatchRect/MarginContainer"]
 layout_mode = 2
