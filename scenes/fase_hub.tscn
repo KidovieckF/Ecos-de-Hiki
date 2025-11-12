@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://bmboeyw6a0ym8"]
+[gd_scene load_steps=50 format=3 uid="uid://bmboeyw6a0ym8"]
 
 [ext_resource type="Script" uid="uid://doqknc0c6m1xv" path="res://scripts/salaBase.gd" id="1_1sqhb"]
 [ext_resource type="Texture2D" uid="uid://dqyafxd58dwes" path="res://art/tilesets/grass.png" id="2_lx6a2"]
@@ -24,7 +24,6 @@
 [ext_resource type="PackedScene" uid="uid://dtyky7cgimuhi" path="res://scenes/player.tscn" id="14_xo8i3"]
 [ext_resource type="Texture2D" uid="uid://opisi0bou3jv" path="res://art/Mini_Dungeon_v1.0/Tilesets/DoubleDoor.png" id="15_8w44p"]
 [ext_resource type="Texture2D" uid="uid://c2fwqyri4aofq" path="res://art/Pack content/Sprites/Tileset/spr_ocean_water_animated_tiles.png" id="16_ith17"]
-[ext_resource type="PackedScene" uid="uid://ekhpeypfotcs" path="res://scenes/boss.tscn" id="25_8w44p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pi8l7"]
 2:1/0 = 0
@@ -1535,8 +1534,5 @@ shape = SubResource("RectangleShape2D_0v0cm")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collisions"]
 position = Vector2(-13, -15)
 polygon = PackedVector2Array(2, 51, 60, 50, 82, 48, 121, 50, 139, 50, 195, 49, 218, 50, 221, -45, 506, -44, 505, 148, 516, 150, 537, 152, 567, 150, 622, 142, 621, 193, 580, 186, 544, 189, 519, 187, 505, 184, 507, 284, 147, 278, 16, 279, 13, 51, 2, 51, -5, 156, -8, 194, -7, 212, 2, 301, 114, 300, 179, 299, 362, 301, 642, 306, 634, -64, 198, -64, 198, 36, 4, 37)
-
-[node name="Node2D" parent="." instance=ExtResource("25_8w44p")]
-position = Vector2(330.48694, 149.35123)
 
 [connection signal="body_entered" from="Entrada" to="." method="_on_entrada_body_entered"]
