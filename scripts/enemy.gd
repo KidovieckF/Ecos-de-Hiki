@@ -6,9 +6,10 @@ const PICKUP = preload("res://items/item_pickup/ItemPickup.tscn")
 var speed = 40
 var player_chase = false
 var player = null
-var health = 100
+@export var health: int = 100
 var player_inattack_zone = false
 var can_take_damage = true
+@onready var iframes: Timer = $iframes
 
 var hit_by_bullet = false
 var bullet_damage = 0

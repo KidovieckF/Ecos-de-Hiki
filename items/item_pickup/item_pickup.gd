@@ -20,10 +20,19 @@ func _on_body_entered(b) -> void:
 		 
 		if item_data:
 			if GlobalPlayerManager.INVENTORY_DATA.add_item(item_data) == true:
+				if item_data.type == "upgrade":
+					_apply_item_upgrade(item_data)
+				
 				emit_signal("item_picked")
 				item_picked_up()
 	pass
-				
+
+func _apply_item_upgrade(item_data: ItemData) -> void:
+	# Exemplo: item_data pode conter "upgrade_type" e "upgrade_value"
+	if item_data.upgrade_type and item_data.upgrade_value:
+		GlobalPlayerStats.apply_upgrade(item_data.upgrade_type, item_data.upgrade_value)
+
+
 func item_picked_up() -> void:
 	area_2d.body_entered.disconnect(_on_body_entered)
 	#audio_stream_player_2d.play()

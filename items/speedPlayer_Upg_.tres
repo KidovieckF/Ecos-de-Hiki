@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://diq3xvca6mg7e"]
+
+[ext_resource type="Script" uid="uid://dwq6j6w2argw1" path="res://items/scripts/item_data.gd" id="1_ar48e"]
+[ext_resource type="Texture2D" uid="uid://2mssteml03ml" path="res://art/Items.png" id="2_nnlw2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_865b8"]
+atlas = ExtResource("2_nnlw2")
+region = Rect2(147, 3, 42, 42)
+
+[resource]
+script = ExtResource("1_ar48e")
+name = "Botas da Calamidade"
+description = "Botas fodas"
+texture = SubResource("AtlasTexture_865b8")
+type = "upgrade"
+upgrade_type = "speed"
+upgrade_value = 50.0
+metadata/_custom_type_script = "uid://dwq6j6w2argw1"

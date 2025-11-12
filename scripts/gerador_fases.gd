@@ -1,15 +1,29 @@
 extends Node2D
 
 const SALA_INICIAL = preload("res://scenes/fase_hub.tscn")
-const SALAS = [
+
+# 🔹 Conjunto de fases da primeira parte
+const SALAS_PARTE1 = [
 	preload("res://scenes/Sala2.tscn"),
-	preload("res://scenes/Sala3.tscn")
+	preload("res://scenes/Sala3.tscn"),
+]
+
+# 🔹 Fase fixa (boss / transição / cutscene)
+const SALA_FIXA = preload("res://scenes/mapatesouro.tscn")
+
+# 🔹 Conjunto de fases da segunda parte
+const SALAS_PARTE2 = [
+	preload("res://scenes/mapa1.tscn"),
+	preload("res://scenes/mapa2.tscn"),
 ]
 
 @export var debug_mode: bool = false
 
 var sala_atual: Node2D
 var jogador: Node2D
+var salas_completadas: int = 0
+var usando_segunda_parte: bool = false
+
 
 func _ready():
 	jogador = get_node("player")
@@ -22,7 +36,6 @@ func carregar_sala_inicial():
 	sala.position = Vector2.ZERO
 	sala.connect("saiu_da_sala", Callable(self, "_quando_saiu_da_sala"))
 	sala_atual = sala
-
 
 	if debug_mode:
 		print("====================")
@@ -37,16 +50,30 @@ func _quando_saiu_da_sala():
 	if is_instance_valid(sala_atual):
 		sala_atual.queue_free()
 
-	var nova_sala = SALAS.pick_random().instantiate()
+	# 🔹 Atualiza o contador
+	salas_completadas += 1
+	print("📊 Salas completadas:", salas_completadas)
+
+	var proxima_sala: PackedScene
+
+	# 🔹 Após 2 salas da primeira parte, carrega a sala fixa
+	if salas_completadas % 3 == 0:
+		proxima_sala = SALA_FIXA
+		usando_segunda_parte = true
+	# 🔹 Se já passou pela sala fixa, usa o segundo grupo
+	elif usando_segunda_parte:
+		proxima_sala = SALAS_PARTE2.pick_random()
+	else:
+		proxima_sala = SALAS_PARTE1.pick_random()
+
+	var nova_sala = proxima_sala.instantiate()
 	add_child(nova_sala)
 
-	# 🔹 Nova sala na MESMA posição da anterior
+	# Mantém posição
 	nova_sala.position = sala_atual.position
 	nova_sala.connect("saiu_da_sala", Callable(self, "_quando_saiu_da_sala"))
 	sala_atual = nova_sala
 
-
-	
 	if debug_mode:
 		print("====================")
 		print("[DEBUG] Nova sala:", nova_sala.name)

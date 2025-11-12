@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://e2pa2pa8outv"]
+
+[ext_resource type="Script" uid="uid://c71s3lin3360" path="res://scripts/rock_projetil.gd" id="1_k6j6i"]
+[ext_resource type="Texture2D" uid="uid://bl16xn2oigojp" path="res://art/objects/FB001.png" id="2_dcowy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xkakt"]
+radius = 15.0
+
+[node name="Rock" type="Area2D"]
+position = Vector2(1, 1)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_k6j6i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xkakt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-5.5, 1)
+scale = Vector2(0.828125, 1.0625)
+texture = ExtResource("2_dcowy")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

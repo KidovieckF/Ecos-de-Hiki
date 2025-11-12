@@ -8,7 +8,7 @@ var hud_scene = preload("res://scenes/hud.tscn")
 var inventory_scene = preload("res://scenes/Inventario.tscn")
 var menu_morte_scene = preload("res://scenes/menu_morte.tscn")
 
-
+@onready var stats = GlobalPlayerStats
 
 var enemy_inatacck_range = false
 var enemy_attack_cooldown = true
@@ -30,6 +30,8 @@ func _ready():
 	instantiate_HUD()
 	instantiate_inventory()
 	instantiate_menu()
+	
+	health = GlobalPlayerStats.vida_atual
 	if $world_camera:
 		$world_camera.make_current()
 	else:
@@ -38,6 +40,8 @@ func _ready():
 	print("🔍 Player instanciado em:", name, " | Cena:", get_tree().current_scene.name)
 	print("Todos os Players atuais:", get_tree().get_nodes_in_group("player"))
 	emit_signal("health_changed", health, max_health)
+	
+	
 	
 func _physics_process(delta):
 	player_movement(delta)
@@ -82,22 +86,22 @@ func player_movement(delta):
 	if Input.is_action_pressed("ui_right"):
 		current_dir = "right"
 		play_anim(1)
-		velocity.x = speed
+		velocity.x = speed * GlobalPlayerStats.move_speed
 		velocity.y = 0
 	elif Input.is_action_pressed("ui_left"):
 		current_dir = "left"
 		play_anim(1)
-		velocity.x = -speed
+		velocity.x = -speed * GlobalPlayerStats.move_speed
 		velocity.y = 0
 	elif Input.is_action_pressed("ui_down"):
 		current_dir = "down"
 		play_anim(1)
-		velocity.y = speed
+		velocity.y = speed * GlobalPlayerStats.move_speed
 		velocity.x = 0
 	elif Input.is_action_pressed("ui_up"):
 		current_dir = "up"
 		play_anim(1)
-		velocity.y = -speed
+		velocity.y = -speed * GlobalPlayerStats.move_speed
 		velocity.x = 0
 	else: 
 		play_anim(0)
@@ -109,6 +113,7 @@ func player_movement(delta):
 func take_damage(amount: int):
 	health -= amount
 	health = clamp(health, 0, max_health)
+	GlobalPlayerStats.vida_atual = health
 	emit_signal("health_changed", health, max_health)
 	
 	if health <= 0:
@@ -206,38 +211,51 @@ func attack():
 			$attack_cd.start()
 			
 func shoot():
-	if Input.is_action_just_pressed("shoot") and attack_ip == false: # defina "shoot" no InputMap
+	if Input.is_action_just_pressed("shoot") and attack_ip == false:
 		attack_ip = true
-		var bullet = bullet_scene.instantiate()
-		var offset = Vector2(-4, -8) # 16 pixels à direita
-		if current_dir == "left":
-			offset = Vector2(-30, -8)
-		elif current_dir == "up":
-			offset = Vector2(-16, -16)
-		elif current_dir == "down":
-			offset = Vector2(-16, 13)
-		
-		bullet.position = global_position + offset
 
 		var dir = Vector2.ZERO
 		match current_dir:
-			"right":
-				dir = Vector2.RIGHT
-				$attack_cd.start()
-			"left":
-				dir = Vector2.LEFT
-				$attack_cd.start()
-			"up":
-				dir = Vector2.UP
-				$attack_cd.start()
-			"down":
-				dir = Vector2.DOWN
-				$attack_cd.start()
-				
-		if dir != Vector2.ZERO:
-			bullet.get_node("Sprite2D").rotation = dir.angle()
-		bullet.velocity = dir * bullet.speed
-		get_tree().current_scene.add_child(bullet)
+			"right": dir = Vector2.RIGHT
+			"left": dir = Vector2.LEFT
+			"up": dir = Vector2.UP
+			"down": dir = Vector2.DOWN
+
+		if dir == Vector2.ZERO:
+			return
+
+		# Começa o cooldown do ataque
+		$attack_cd.start()
+
+		# Número de disparos simultâneos (padrão 1, pode vir de upgrade)
+		var shot_count = GlobalPlayerStats.multi_shot_count
+		var spread_angle = 10.0 # graus entre cada tiro
+		var base_angle = dir.angle()
+
+		for i in range(shot_count):
+			var angle_offset = deg_to_rad((i - (shot_count - 1) / 2.0) * spread_angle)
+			var final_dir = dir.rotated(angle_offset)
+
+			var bullet = bullet_scene.instantiate()
+			var offset = Vector2(-4, -8)
+			if current_dir == "left":
+				offset = Vector2(-30, -8)
+			elif current_dir == "up":
+				offset = Vector2(-16, -16)
+			elif current_dir == "down":
+				offset = Vector2(-16, 13)
+
+			bullet.position = global_position + offset
+
+			# Rotaciona o sprite da bala para acompanhar a direção
+			if bullet.has_node("Sprite2D"):
+				bullet.get_node("Sprite2D").rotation = final_dir.angle()
+
+			# Define a velocidade final da bala (incluindo upgrade de bullet_speed)
+			bullet.velocity = final_dir * bullet.speed * GlobalPlayerStats.bullet_speed
+
+			get_tree().current_scene.add_child(bullet)
+
 		
 
 #tempo de espera para atirar

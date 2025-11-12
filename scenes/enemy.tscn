@@ -439,7 +439,6 @@ position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_md0e3")
 
 [node name="iframes" type="Timer" parent="."]
-wait_time = 0.001
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
