@@ -11,4 +11,7 @@ region = Rect2(32, 0, 32, 32)
 script = ExtResource("1_70df6")
 name = "Poção"
 texture = SubResource("AtlasTexture_8h85v")
+type = "upgrade"
+upgrade_type = "heal"
+upgrade_value = 10.0
 metadata/_custom_type_script = "uid://dwq6j6w2argw1"

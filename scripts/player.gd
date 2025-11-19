@@ -25,6 +25,8 @@ const speed = 100
 var current_dir = "none"
 
 func _ready():
+	
+	GlobalPlayerStats.connect("stats_updated", _on_stats_updated)
 	$AnimatedSprite2D.play("front_idle")
 	$AnimatedSprite2D2.play("Idle_M")
 	instantiate_HUD()
@@ -49,6 +51,11 @@ func _physics_process(delta):
 	shoot()
 	
 	
+func _on_stats_updated():
+	var vida_atual = GlobalPlayerStats.vida_atual
+	max_health = GlobalPlayerStats.max_health
+	emit_signal("health_changed", vida_atual, max_health)
+
 func instantiate_HUD():
 	var hud_instance = hud_scene.instantiate()
 	hud_instance.position = Vector2(0,0)
@@ -252,7 +259,9 @@ func shoot():
 				bullet.get_node("Sprite2D").rotation = final_dir.angle()
 
 			# Define a velocidade final da bala (incluindo upgrade de bullet_speed)
-			bullet.velocity = final_dir * bullet.speed * GlobalPlayerStats.bullet_speed
+			bullet.direction = final_dir.normalized()
+			bullet.speed = bullet.speed * GlobalPlayerStats.bullet_speed
+
 
 			get_tree().current_scene.add_child(bullet)
 

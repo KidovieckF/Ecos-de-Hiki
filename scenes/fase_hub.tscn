@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://bmboeyw6a0ym8"]
+[gd_scene load_steps=51 format=3 uid="uid://bmboeyw6a0ym8"]
 
 [ext_resource type="Script" uid="uid://doqknc0c6m1xv" path="res://scripts/salaBase.gd" id="1_1sqhb"]
 [ext_resource type="Texture2D" uid="uid://dqyafxd58dwes" path="res://art/tilesets/grass.png" id="2_lx6a2"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://dtyky7cgimuhi" path="res://scenes/player.tscn" id="14_xo8i3"]
 [ext_resource type="Texture2D" uid="uid://opisi0bou3jv" path="res://art/Mini_Dungeon_v1.0/Tilesets/DoubleDoor.png" id="15_8w44p"]
 [ext_resource type="Texture2D" uid="uid://c2fwqyri4aofq" path="res://art/Pack content/Sprites/Tileset/spr_ocean_water_animated_tiles.png" id="16_ith17"]
+[ext_resource type="PackedScene" uid="uid://be4fftnu5js23" path="res://scenes/NPC.tscn" id="25_8w44p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pi8l7"]
 2:1/0 = 0
@@ -1507,7 +1508,7 @@ script = ExtResource("1_1sqhb")
 
 [node name="player" parent="." instance=ExtResource("14_xo8i3")]
 z_index = 0
-position = Vector2(145, 144)
+position = Vector2(122, 133)
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
@@ -1520,7 +1521,7 @@ layer_1/name = "objetos"
 layer_1/tile_data = PackedInt32Array(458781, 2, 0, 589856, 851971, 20, 524318, 720899, 19, 589854, 720899, 20, 655390, 720899, 21, 524319, 786435, 19, 589855, 786435, 20, 655391, 786435, 21, 524320, 851971, 19, 655392, 851971, 21, 524321, 917507, 19, 589857, 917507, 20, 655393, 917507, 21, 524322, 983043, 19, 589858, 983043, 20, 655394, 983043, 21, 524323, 1048579, 19, 589859, 1048579, 20, 655395, 1048579, 21, 29, 720899, 24, 28, 720899, 24, 27, 720899, 24, 26, 720899, 24, 25, 720899, 24, 24, 720899, 24, 23, 720899, 24, 22, 720899, 24, 21, 720899, 24, 20, 720899, 24, 19, 720899, 24, 18, 720899, 24, 17, 720899, 24, 16, 720899, 24, 15, 720899, 24, 14, 720899, 24, 13, 655363, 24, 30, 786435, 24, -65523, 655363, 23, -131059, 655363, 23, -196595, 655363, 23, -65506, 655363, 23, -131042, 655363, 23, -196578, 655363, 23, -262131, 655363, 23, -262114, 655363, 23)
 layer_2/name = "ysort"
 layer_2/y_sort_enabled = true
-layer_2/tile_data = PackedInt32Array(-65530, 9, 0, -65531, 9, 0, -65529, 11, 0, 196609, 12, 0, 131098, 12, 0, 917505, 393219, 24, 131084, 65539, 25, 131079, 65539, 24, 196613, 131075, 24, 458752, 65539, 24, 851981, 589827, 26, 983056, 393219, 26, 917519, 327683, 25, 917512, 720899, 26, 917513, 720899, 26, 851973, 2, 5, 524290, 655362, 7, 655374, 2, 1, 983051, 327682, 0, 917516, 327682, 0, 458781, 2, 0, 786439, 19, 4, 720905, 16, 0)
+layer_2/tile_data = PackedInt32Array(-65530, 9, 0, -65531, 9, 0, -65529, 11, 0, 196609, 12, 0, 131098, 12, 0, 917505, 393219, 24, 131084, 65539, 25, 131079, 65539, 24, 196613, 131075, 24, 458752, 65539, 24, 851981, 589827, 26, 983056, 393219, 26, 917519, 327683, 25, 917512, 720899, 26, 917513, 720899, 26, 851973, 2, 5, 524290, 655362, 7, 655374, 2, 1, 983051, 327682, 0, 917516, 327682, 0, 458781, 2, 0, 720905, 16, 0)
 
 [node name="Entrada" type="Area2D" parent="."]
 
@@ -1534,5 +1535,9 @@ shape = SubResource("RectangleShape2D_0v0cm")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collisions"]
 position = Vector2(-13, -15)
 polygon = PackedVector2Array(2, 51, 60, 50, 82, 48, 121, 50, 139, 50, 195, 49, 218, 50, 221, -45, 506, -44, 505, 148, 516, 150, 537, 152, 567, 150, 622, 142, 621, 193, 580, 186, 544, 189, 519, 187, 505, 184, 507, 284, 147, 278, 16, 279, 13, 51, 2, 51, -5, 156, -8, 194, -7, 212, 2, 301, 114, 300, 179, 299, 362, 301, 642, 306, 634, -64, 198, -64, 198, 36, 4, 37)
+
+[node name="Node2D" parent="." instance=ExtResource("25_8w44p")]
+z_index = 4
+position = Vector2(120, 205)
 
 [connection signal="body_entered" from="Entrada" to="." method="_on_entrada_body_entered"]

@@ -6,6 +6,6 @@ class_name ItemData extends Resource
 @export_enum("consumable", "upgrade", "quest", "misc") 
 var type: String = "consumable"
 
-@export_enum("damage", "health", "speed", "bullet_speed") 
+@export_enum("damage", "heal", "speed", "bullet_speed") 
 var upgrade_type: String = ""
 @export var upgrade_value: float = 0.0

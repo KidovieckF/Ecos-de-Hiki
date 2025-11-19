@@ -506,7 +506,7 @@ shape = SubResource("CircleShape2D_g2els")
 [node name="player_hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitbox"]
-position = Vector2(0, -5)
+position = Vector2(0, -13)
 shape = SubResource("CircleShape2D_qhqgy")
 
 [node name="iframes" type="Timer" parent="."]
@@ -520,7 +520,7 @@ limit_smoothed = true
 rotation_smoothing_enabled = true
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
-z_index = 1
+y_sort_enabled = true
 position = Vector2(-16, -12)
 scale = Vector2(0.625, 0.625)
 sprite_frames = SubResource("SpriteFrames_2a3c5")

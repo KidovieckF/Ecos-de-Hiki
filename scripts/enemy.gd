@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+const DAMAGE_NUMBER = preload("res://scenes/damage_number.tscn")
 const PICKUP = preload("res://items/item_pickup/ItemPickup.tscn")
 @export_category("Item Drops")
 @export var drops : Array[Dropdata]
@@ -23,8 +24,20 @@ func _physics_process(delta):
 	deal_with_damage()
 	
 	#inimigo corre atras do player
-	if player_chase:
-		position += (player.position - position)/speed
+	if player_chase and player != null:
+		var dir = player.position - position
+		var distance = dir.length()
+
+	# Se chegou perto demais, para — evita grudar
+		if distance < 12:
+			velocity = Vector2.ZERO
+			move_and_slide()
+			return
+
+		# Só normaliza se estiver longe o suficiente
+		var direction = dir.normalized()
+		velocity = direction * speed
+		move_and_slide()
 		
 		
 		if(player.position.x - position.x) < 0:
@@ -42,9 +55,6 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 	player_chase = true
 
 
-func _on_detection_area_body_exited(body: Node2D) -> void:
-	player = null
-	player_chase = false
 
 func enemy():
 	pass
@@ -70,6 +80,7 @@ func deal_with_damage():
 				
 	if hit_by_bullet and can_take_damage:
 		apply_damage(bullet_damage)
+		spawn_damage_number(bullet_damage)
 		hit_by_bullet = false  # reseta depois de aplicar
 
 
@@ -79,9 +90,17 @@ func apply_damage(amount: int):
 	can_take_damage = false
 	print("slime health = ", health)
 	if health <= 0:
+		$AnimatedSprite2D.play("death")
 		drop_items()
 		queue_free()
 		
+func spawn_damage_number(amount: int):
+	var dmg = DAMAGE_NUMBER.instantiate()
+	dmg.global_position = global_position + Vector2(0, -20)
+	get_tree().current_scene.add_child(dmg)
+	dmg.setup(amount)
+
+
 func _on_iframes_timeout() -> void:
 	can_take_damage = true
 	

@@ -1,6 +1,7 @@
 @tool
 class_name ItemPickup extends Node2D
 
+
 @export var item_data : ItemData : set = _set_item_data
 
 @onready var area_2d: Area2D = $Area2D
@@ -22,6 +23,7 @@ func _on_body_entered(b) -> void:
 			if GlobalPlayerManager.INVENTORY_DATA.add_item(item_data) == true:
 				if item_data.type == "upgrade":
 					_apply_item_upgrade(item_data)
+					
 				
 				emit_signal("item_picked")
 				item_picked_up()

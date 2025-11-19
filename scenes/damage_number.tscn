@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://jloi802125ue"]
+
+[ext_resource type="Script" uid="uid://bugg7vkfca2no" path="res://scripts/damage_number.gd" id="1_aie4f"]
+
+[node name="DamageNumber" type="Node2D"]
+script = ExtResource("1_aie4f")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.8779379, 0.18785381, 0.22139844, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10

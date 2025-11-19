@@ -4,6 +4,11 @@ class_name InventoryData extends Resource
 
 
 func add_item( item : ItemData, count : int = 1) -> bool:
+	if item.upgrade_type == "heal":
+		print("Aplicando cura imediata.")
+		GlobalPlayerStats.apply_upgrade("heal", item.upgrade_value)
+		return true 
+
 	for s in slots:
 		if s:
 			if s.item_data == item:
@@ -20,3 +25,8 @@ func add_item( item : ItemData, count : int = 1) -> bool:
 
 	print("inventory was full!")
 	return false
+
+func clear():
+	for i in slots.size():
+		slots[i] = null
+	emit_signal("inventory_changed")

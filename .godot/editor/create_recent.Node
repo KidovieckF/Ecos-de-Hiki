@@ -1,14 +1,15 @@
-Timer
-Sprite2D
+StaticBody2D
 CollisionShape2D
-Area2D
 AnimatedSprite2D
+TextureRect
+Timer
+Label
+Panel
+Label      - Matches the "text" keyword.
+CanvasLayer
+CharacterBody2D
+Sprite2D
+Area2D
+AnimationPlayer
 Node2D
 ColorRect
-Node
-CharacterBody2D
-Label
-VBoxContainer
-Button
-HBoxContainer
-TextureRect

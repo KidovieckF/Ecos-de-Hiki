@@ -73,7 +73,7 @@ func _physics_process(delta: float) -> void:
 	if attacking:
 		return
 
-	if player_chase and player:
+	if player_chase:
 		var dir: Vector2 = (player.global_position - global_position).normalized()
 		position += dir * speed * delta
 
@@ -149,14 +149,15 @@ func end_attack() -> void:
 	attacking = false
 	cooldown.start()
 
+var player_seen: bool = false  # novo: indica que o boss viu o player uma vez
+
 func _on_detection_area_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		player = body
 		player_chase = true
+		player_seen = true
 		print("👁️ Boss detectou o player!")
 
 func _on_detection_area_body_exited(body: Node2D) -> void:
-	if body == player:
-		player = null
-		player_chase = false
-		print("😴 Boss perdeu o player de vista.")
+	# não resetar player_chase nem player
+	pass

@@ -10,21 +10,21 @@
 texture = ExtResource("2_nidtt")
 modulate_color = Color(0.585062, 0.585062, 0.585062, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fxico"]
-texture = ExtResource("3_fn3r6")
-region_rect = Rect2(275, 276, 90, 25)
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fn3r6"]
 texture = ExtResource("3_fn3r6")
 region_rect = Rect2(275, 242, 90, 27)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_04kux"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fxico"]
 texture = ExtResource("3_fn3r6")
-region_rect = Rect2(275, 212, 90, 25)
+region_rect = Rect2(275, 276, 90, 25)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sg06x"]
 texture = ExtResource("3_fn3r6")
 region_rect = Rect2(275, 178, 90, 27)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_04kux"]
+texture = ExtResource("3_fn3r6")
+region_rect = Rect2(275, 212, 90, 25)
 
 [node name="Main_Menu" type="Control"]
 process_mode = 3
@@ -102,21 +102,21 @@ custom_minimum_size = Vector2(30, 20)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 17
-theme_override_styles/hover = SubResource("StyleBoxTexture_fxico")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_fxico")
 theme_override_styles/normal = SubResource("StyleBoxTexture_fn3r6")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_fxico")
+theme_override_styles/hover = SubResource("StyleBoxTexture_fxico")
 
 [node name="exit_button" type="Button" parent="MarginContainer/NinePatchRect/VBoxContainer"]
 custom_minimum_size = Vector2(30, 20)
 layout_mode = 2
-theme_override_colors/font_outline_color = Color(0.666667, 0.47451, 0.34902, 1)
 theme_override_colors/font_color = Color(0.768627, 0.603922, 0.423529, 1)
+theme_override_colors/font_outline_color = Color(0.666667, 0.47451, 0.34902, 1)
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("5_nidtt")
 theme_override_font_sizes/font_size = 14
-theme_override_styles/hover = SubResource("StyleBoxTexture_04kux")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_04kux")
 theme_override_styles/normal = SubResource("StyleBoxTexture_sg06x")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_04kux")
+theme_override_styles/hover = SubResource("StyleBoxTexture_04kux")
 text = "Sair"
 icon_alignment = 1
 

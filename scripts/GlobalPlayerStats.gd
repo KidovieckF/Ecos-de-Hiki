@@ -1,5 +1,6 @@
 extends Node
 
+signal stats_updated
 
 # Atributos principais do jogador
 var damage: float = 10.0
@@ -14,12 +15,13 @@ var vida_atual: float = 100
 var upgrades_collected: Array[String] = []
 
 # Método para aplicar upgrades
-func apply_upgrade(upgrade_type: String, value: float = 0.0) -> void:
+func apply_upgrade(upgrade_type: String, value: float) -> void:
 	match upgrade_type:
 		"damage":
 			damage += value
-		"health":
-			max_health += value
+		"heal":
+			vida_atual = clamp(vida_atual + value, 0, max_health)
+			emit_signal("stats_updated")
 		"speed":
 			move_speed += value
 		"bullet_speed":
@@ -29,4 +31,26 @@ func apply_upgrade(upgrade_type: String, value: float = 0.0) -> void:
 		_:
 			push_warning("Tipo de upgrade desconhecido: %s" % upgrade_type)
 
-	print("[UPGRADE] %s aplicado! Novos stats: dano=%.1f, vida=%.1f" % [upgrade_type, damage, max_health])
+	print("[UPGRADE] %s aplicado! Novos stats: dano=%.1f, vida=%.1f" % [upgrade_type, damage, vida_atual])
+
+func reset():
+	# Reset dos atributos principais
+	damage = 10.0
+	max_health = 100.0
+	move_speed = 1.0
+	bullet_speed = 1.0
+	multi_shot_count = 1
+
+	# Reset da vida
+	vida_atual = max_health
+
+	# Reset dos upgrades coletados
+	upgrades_collected.clear()
+
+	# Se houver inventário externo, resetar também
+	if Engine.has_singleton("Inventory"):
+		var inv = Engine.get_singleton("Inventory")
+		if inv.has_method("clear"):
+			inv.clear()
+
+	emit_signal("stats_updated")

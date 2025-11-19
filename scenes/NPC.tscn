@@ -1,0 +1,97 @@
+[gd_scene load_steps=14 format=3 uid="uid://be4fftnu5js23"]
+
+[ext_resource type="Script" uid="uid://cjmjcw5aub62i" path="res://scripts/npc.gd" id="1_mhefn"]
+[ext_resource type="Texture2D" uid="uid://iyqbg6hmvsah" path="res://NPCS/The Female Adventurer - Free/The Female Adventurer - Free/Idle/Idle.png" id="2_6xvi5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktgr7"]
+atlas = ExtResource("2_6xvi5")
+region = Rect2(0, 320, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnjht"]
+atlas = ExtResource("2_6xvi5")
+region = Rect2(48, 320, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pv12"]
+atlas = ExtResource("2_6xvi5")
+region = Rect2(96, 320, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6c3r"]
+atlas = ExtResource("2_6xvi5")
+region = Rect2(144, 320, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slm4e"]
+atlas = ExtResource("2_6xvi5")
+region = Rect2(192, 320, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6w2b"]
+atlas = ExtResource("2_6xvi5")
+region = Rect2(240, 320, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_we7f3"]
+atlas = ExtResource("2_6xvi5")
+region = Rect2(288, 320, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxikf"]
+atlas = ExtResource("2_6xvi5")
+region = Rect2(336, 320, 48, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mhefn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktgr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnjht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pv12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6c3r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slm4e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6w2b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_we7f3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxikf")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 4.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mhefn"]
+radius = 24.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6xvi5"]
+size = Vector2(13, 17)
+
+[node name="Node2D" type="Node2D"]
+light_mask = 2
+z_index = 5
+script = ExtResource("1_mhefn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mhefn")
+animation = &"Idle"
+frame_progress = 0.30430925
+offset = Vector2(0, -6)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_mhefn")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visibility_layer = 7
+position = Vector2(0.5, -2.5)
+shape = SubResource("RectangleShape2D_6xvi5")

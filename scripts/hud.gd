@@ -20,6 +20,7 @@ func _ready() -> void:
 func update_health(current: int, maximum: int):
 	health_bar.max_value = maximum
 	health_bar.value = current
+	print("VIDA MUDOU")
 
 # Preparado para quando implementar mana
 #func update_mana(current: int, maximum: int):
